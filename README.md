@@ -1,6 +1,9 @@
 # python-custom-library
 python library intended to live in install of python for easy importing
 
+# twitch irc parser
+is a python modification of https://github.com/KATC14/twitch_irc_parser
+
 # utilities
 asciige
 
@@ -36,6 +39,3 @@ uniplace
 urlest
 
 urlmat
-
-# twitch irc parser
-is a python modification of https://dev.twitch.tv/docs/irc/example-parser/#example-message-parser
