@@ -13,7 +13,6 @@ from .timeount import time_amount
 from .timince import time_since
 from .uniplace import unicode_replace
 from .urlest import url_request
-from .urlmat import url_format
 
 __all__ = [
     'ascii_change', 
@@ -32,6 +31,5 @@ __all__ = [
     'time_amount', 
     'time_since', 
     'unicode_replace', 
-    'url_request', 
-    'url_format'
+    'url_request'
 ]
