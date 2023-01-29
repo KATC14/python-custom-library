@@ -11,7 +11,7 @@ is a python modification of https://github.com/KATC14/twitch_irc_parser
 - cut_convert
   - converts time from given datetime object to default Eastern Standard Time
 
-- ascii_change
+- dict_replace
   - replace multiple items in a string
 
 - genaric_header
