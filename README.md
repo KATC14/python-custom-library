@@ -53,4 +53,4 @@ is a python modification of https://github.com/KATC14/twitch_irc_parser
   - makes translation table usable for str.translate(TranslateTable). and returns the translated input
 
 - url_request
-  - Open the given url, which must be a string
+  - Open the given url with given headers(dict), data(must be encoded), method and SSL context
