@@ -14,7 +14,7 @@ schema = Schema({
     "tags": Or({
         Optional("badge-info"):                Or(str, None),
         Optional("client-nonce"):              str,
-        Optional("color"):                     str,
+        Optional("color"):                     Or(str, None),
         Optional("display-name"):              str,
         Optional("emotes"):                    Or(None, str, dict),
         Optional("emote-sets"):                list,
