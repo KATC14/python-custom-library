@@ -16,6 +16,8 @@ schema = Schema({
         Optional("client-nonce"):              str,
         Optional("color"):                     Or(str, None),
         Optional("display-name"):              str,
+        Optional("emote-only"):                Or(Use(int), str, None),
+        Optional("followers-only"):            Or(Use(int), str, None),
         Optional("emotes"):                    Or(None, str, dict),
         Optional("emote-sets"):                list,
         Optional("first-msg"):                 Or(Use(int), str),
