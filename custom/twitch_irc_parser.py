@@ -5,14 +5,15 @@ from schema import Schema, Use, Optional, Or
 schema = Schema({
 	"command": str,
 	"channel": Or(str, None),
-	"badges": Or({
-		Optional("moderator"):  Or(Use(int), str),
-		Optional("subscriber"): Or(Use(int), str),
-		Optional("premium"):    Or(Use(int), str),
-		Optional("turbo"):      Or(Use(int), str)
-	}, dict, None),
     "tags": Or({
-        Optional("badge-info"):                Or(str, None),
+        Optional("badge-info"):                Or(str, None, any),
+		Optional("badges"):                    Or({
+			Optional("moderator"):  Or(Use(int), str),
+			Optional("subscriber"): Or(Use(int), str),
+			Optional("premium"):    Or(Use(int), str),
+			Optional("turbo"):      Or(Use(int), str),
+			Optional(str):          Or(Use(int), str)
+		}, dict, None),
         Optional("client-nonce"):              str,
         Optional("color"):                     Or(str, None),
         Optional("display-name"):              str,
@@ -63,7 +64,6 @@ def msg_parser(message):
 	parsed_message = {# Contains the component parts.
 		"command": None,
 		"channel": None,
-		"badges": None,
 		"tags": None,
 		"source": None,
 		"message": None
@@ -109,9 +109,9 @@ def msg_parser(message):
 	if parsed_message.get('command'):# Is None if it's a message we don't care about.
 		if tags_component:# The IRC message contains tags.
 			pt = parseTags(tags_component)
-			if pt.get('badges'):
-				parsed_message['badges'] = pt['badges']
-				del pt['badges']
+			#if pt.get('badges'):
+			#	parsed_message['badges'] = pt['badges']
+			#	del pt['badges']
 			parsed_message['tags'] = pt
 
 		parsed_message['source'] = parseSource(source_component)
@@ -142,7 +142,7 @@ def parseTags(tags):
 		value = split_tags[1] if split_tags[1] else None
 
 		match split_tags[0]:# Switch on tag name
-			case 'badges':
+			case 'badges' | 'badge-info':
 				# badges=staff/1,broadcaster/1,turbo/1
 				if value:
 					badge_dict = {}# Holds the list of badge objects. The key is the badge's name (e.g., subscriber).
@@ -152,7 +152,7 @@ def parseTags(tags):
 					paresed_tags[split_tags[0]] = badge_dict
 				else:
 					paresed_tags[split_tags[0]] = None
-			case 'badge-info' | 'emotes':
+			case 'emotes':
 				# emotes=25:0-4,12-16/1902:6-10
 				if value:
 					emotes_dict = {}# Holds a list of emote objects. The key is the emote's ID.
