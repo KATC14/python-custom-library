@@ -68,6 +68,17 @@ def from_ordinal(n:str) -> int:
 			"Sexdecillion":"", "Quindecillion":"", "Quattuordecillion":"", "Tredecillion":"",    "Duodecillion":"",  "Undecillion":"",
 			"Decillion":"",    "Nonillion":"",     "Octillion":"",         "Septillion":"",      "Sextillion":"",    "Quintillion":"",
 			"quadrillion":"",  "trillion":"",      "billion":"",           "million":"",         "thousand":"",      'hundred':''}
-	a = dictlace.dict_replace(n, {'-': ' ', ' and':' '}).split()
-	b = [str(ones[i]) for i in a]
+	#a = dictlace.dict_replace(n, {'-': ' ', ' and':' '}).split()
+	#b = [str(ones[y])[:-1] if x < 1 else str(ones[y]) if '-' in i else str(ones[i]) for i in n.split() for x, y in enumerate(i.split('-'))]
+
+	b = []
+	for i in n.replace(' and').split():
+		if '-' in i:
+			#for x, y in enumerate(i.split('-')):
+			#	b.append(str(ones[y])[:-1] if x < 1 else str(ones[y]))
+			x, y = i.split('-')
+			b.append(f"{str(ones[x])[:-1]}{ones[y]}")
+		else:
+			if str(ones[i]):
+				b.append(str(ones[i]))
 	return int(''.join(b))
