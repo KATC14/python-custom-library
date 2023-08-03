@@ -1,6 +1,6 @@
-def genaric_header(args:dict[str, str]) -> dict:
+def generic_header(args:dict[str, str]) -> dict:
 	"""
-	>>> genaric_header({"ct":"a/j"})
+	>>> generic_header({"ct":"a/j"})
 	{"Content-Type":"application/json"}
 	keys\n
 		- ct       = Content-Type
