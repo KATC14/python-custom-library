@@ -1,7 +1,7 @@
 from .asciige import ascii_change
 from .cutert import cut_convert
 from .dictlace import dict_replace
-from .gead import genaric_header
+from .gead import generic_header
 from .isint import is_int
 from .isoat import is_float
 from .life import base42
@@ -18,7 +18,7 @@ __all__ = [
     'ascii_change', 
     'cut_convert', 
     'dict_replace', 
-    'genaric_header', 
+    'generic_header', 
     'is_int', 
     'is_float', 
     'base42', 
