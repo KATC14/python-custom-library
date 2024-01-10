@@ -10,6 +10,7 @@
 - `time_stamp`      - returns current time. default 12 hour format
 - `cut_convert`     - converts time from given datetime object to default Eastern Standard Time
 - `csv_pprint`      - returns csv with added whitespaces
+- `csv_read`        - fixes csv data that is saved with csv_pprint...
 - `time_amount`     - return string with 'Weekday, Month, Day & ordinal, Year, 12-hour, Minute, Second'
 - `time_since`      - return amount of time since given datetime object to end_time defaults to current time returned by datetime.now()
 - `ordinal_suffix`  - return ordinal suffix of given integer (st, nd, rd, th)
@@ -36,13 +37,14 @@ from .timeount   import time_amount
 from .timince    import time_since
 from .uniplace   import unicode_replace
 from .urlest     import url_request
-from .pretty_csv import csv_pprint
+from .pretty_csv import *
 #from .urlmat  import url_format
 
 __all__ = [
     'ascii_change', 
     'cut_convert', 
     'csv_pprint',
+    'csv_read',
     'dict_replace', 
     'generic_header', 
     'is_int', 
