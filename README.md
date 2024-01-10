@@ -32,7 +32,7 @@ python library intended to live in install of python for easy importing
   - returns hsv color coverted from given hwb
 
 # twitch irc parser
-is a python modification of https://github.com/KATC14/twitch_irc_parser
+[python port](https://github.com/KATC14/twitch_irc_parser) of [dev.twitch example message parser](https://dev.twitch.tv/docs/irc/example-parser/#example-message-parser) and heavy modification
 
 # utilities
 - ascii_change
