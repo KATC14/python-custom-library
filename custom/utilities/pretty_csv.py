@@ -1,5 +1,6 @@
 import csv
 
+__all__ = ["csv_pprint", "csv_read"]
 
 def csv_pprint(fieldnames, data:dict):
 	"""saves to cvs file with white sapces
@@ -16,3 +17,11 @@ def csv_pprint(fieldnames, data:dict):
 	col_widths = [max(len(row[i]) for row in csv_data) for i in range(len(csv_data[0]))]
 
 	return ['|'.join(val.ljust(width) for val, width in zip(row, col_widths)).strip() for row in csv_data]
+
+def csv_read(file_name:str):
+	data = []
+	with open(file_name, 'r', newline='') as file:
+		csv_f = csv.DictReader(file, delimiter='|')
+		for row in csv_f:
+			data.append({i.strip():x.strip() for i, x in row.items()})
+	return data
