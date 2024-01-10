@@ -68,5 +68,6 @@ python library intended to live in install of python for easy importing
   - return amount of time since given datetime object to end_time defaults to current time returned by datetime.now()
 - unicode_replace
   - makes translation table usable for str.translate(TranslateTable). and returns the translated input
+  - replaces homoglyph character with normal ascii from a-zA-Z sourced from https://github.com/codebox/homoglyph
 - url_request
   - Open the given url with given headers(dict), data(must be encoded), method and SSL context
